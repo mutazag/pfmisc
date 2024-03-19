@@ -1,0 +1,55 @@
+{
+  "package": {},
+  "code": {
+    "fetch_text_content_from_url.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "fetch_text_content_from_url.py",
+      "function": "my_python_tool"
+    },
+    "summarise_llm.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "url": {
+          "type": [
+            "string"
+          ]
+        },
+        "examples": {
+          "type": [
+            "string"
+          ]
+        },
+        "text_content": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "summarise_llm.jinja2"
+    },
+    "examples.py": {
+      "type": "python",
+      "source": "examples.py",
+      "function": "prepare_examples"
+    },
+    "post_process.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "post_process.py",
+      "function": "post_process"
+    }
+  }
+}

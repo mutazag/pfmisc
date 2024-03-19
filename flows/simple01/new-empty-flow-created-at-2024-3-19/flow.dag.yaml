@@ -1,0 +1,41 @@
+inputs:
+  url:
+    type: string
+    default: https://www.microsoft.com
+outputs:
+  output:
+    type: string
+    reference: ${post_process.output}
+nodes:
+- name: fetch_text_content_from_url
+  type: python
+  source:
+    type: code
+    path: fetch_text_content_from_url.py
+  inputs:
+    input1: ${inputs.url}
+- name: summarise_llm
+  type: llm
+  source:
+    type: code
+    path: summarise_llm.jinja2
+  inputs:
+    deployment_name: gpt-4-1106pr-aueast
+    url: ${inputs.url}
+    text_content: ${fetch_text_content_from_url.output}
+    examples: ${examples.output}
+  connection: AOAI_AustEastv2
+  api: chat
+- name: examples
+  type: python
+  source:
+    type: code
+    path: examples.py
+  inputs: {}
+- name: post_process
+  type: python
+  source:
+    type: code
+    path: post_process.py
+  inputs:
+    input1: ${summarise_llm.output}
