@@ -1,0 +1,28 @@
+{
+  "package": {},
+  "code": {
+    "assistant_api_step.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        },
+        "aoaiconn": {
+          "type": [
+            "AzureOpenAIConnection"
+          ]
+        },
+        "deployment_name": {
+          "type": [
+            "string"
+          ],
+          "default": "gpt-4-default-aueast"
+        }
+      },
+      "source": "assistant_api_step.py",
+      "function": "my_python_tool"
+    }
+  }
+}
