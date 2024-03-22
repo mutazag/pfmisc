@@ -2,13 +2,18 @@ $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
 environment:
   python_requirements_txt: requirements.txt
 inputs:
-  text:
+  user_input:
     type: string
-    default: I need to solve the equation `3x + 11 = 14`. Can you help me?
+    default: show and run the python code to estimate pi, what is the final result,
+      and what are the hyperparameters used in this experiment?
+  metaprompt:
+    type: string
+    default: you are a helpful AI assistant, you also have the ability to run code
+      if needed, show the code if you had to run code
 outputs:
   output_prompt:
     type: string
-    reference: ${inputs.text}
+    reference: ${inputs.user_input}
   output_connections:
     type: string
     reference: ${assistant_api_step.output}
@@ -20,4 +25,5 @@ nodes:
     path: assistant_api_step.py
   inputs:
     aoaiconn: open_ai_connection
-    input1: ${inputs.text}
+    user_input: ${inputs.user_input}
+    metaprompt: ${inputs.metaprompt}

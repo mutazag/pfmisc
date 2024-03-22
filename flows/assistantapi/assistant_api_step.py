@@ -13,7 +13,8 @@ import time
 @tool
 def my_python_tool(
 
-    input1: str, 
+    user_input: str, 
+    metaprompt: str,
     aoaiconn : AzureOpenAIConnection, 
     deployment_name: str = "gpt-4-default-aueast",
     ) -> str:
@@ -35,7 +36,7 @@ def my_python_tool(
     # Create an assistant
     assistant = client.beta.assistants.create(
         name="Math Assist",
-        instructions=input1,
+        instructions=metaprompt,
         tools=[{"type": "code_interpreter"}],
         model=deployment_name
     )
@@ -55,7 +56,7 @@ def my_python_tool(
     message = client.beta.threads.messages.create(
         thread_id=thread.id,
         role="user",
-        content="I need to solve the equation `3x + 11 = 14`. Can you help me?"
+        content=user_input
     )
 
     # Run the thread

@@ -4,7 +4,12 @@
     "assistant_api_step.py": {
       "type": "python",
       "inputs": {
-        "input1": {
+        "user_input": {
+          "type": [
+            "string"
+          ]
+        },
+        "metaprompt": {
           "type": [
             "string"
           ]
