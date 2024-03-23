@@ -1,0 +1,56 @@
+{
+  "package": {},
+  "code": {
+    "line_process.py": {
+      "type": "python",
+      "inputs": {
+        "jokescore": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "line_process.py",
+      "function": "line_process"
+    },
+    "aggregate.py": {
+      "type": "python",
+      "inputs": {
+        "results": {
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "source": "aggregate.py",
+      "function": "aggregate_variants_results"
+    },
+    "joke_score.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "joke": {
+          "type": [
+            "string"
+          ]
+        },
+        "topic": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "joke_score.jinja2"
+    },
+    "ensure_json.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "ensure_json.jinja2"
+    }
+  }
+}

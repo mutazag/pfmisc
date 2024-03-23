@@ -1,0 +1,49 @@
+{
+  "orientation": "Vertical",
+  "nodeLayouts": {
+    "inputs": {
+      "x": 620,
+      "y": 42,
+      "index": -1
+    },
+    "outputs": {
+      "x": 550,
+      "y": 444,
+      "index": -1
+    },
+    "line_process": {
+      "x": 305,
+      "y": 310,
+      "height": 75,
+      "index": 0
+    },
+    "aggregate": {
+      "x": 140,
+      "y": 444,
+      "height": 95,
+      "index": 1
+    },
+    "joke_score": {
+      "x": 470,
+      "y": 176,
+      "height": 75,
+      "index": 2
+    },
+    "ensure_json": {
+      "x": 635,
+      "y": 310,
+      "height": 75,
+      "index": 3
+    }
+  },
+  "viewport": {
+    "transformMatrix": [
+      0.6969969,
+      0,
+      0,
+      0.6969969,
+      -251.66776649414066,
+      270.45287921171877
+    ]
+  }
+}

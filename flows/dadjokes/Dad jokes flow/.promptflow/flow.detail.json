@@ -1,0 +1,1281 @@
+{
+  "flow_runs": [
+    {
+      "run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c_0",
+      "status": "Completed",
+      "error": null,
+      "inputs": {
+        "topic": "chickens"
+      },
+      "output": {
+        "joke": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives."
+      },
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c",
+      "root_run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c",
+      "source_run_id": null,
+      "flow_id": "template_standard_flow",
+      "start_time": "2024-03-23T09:21:47.139199Z",
+      "end_time": "2024-03-23T09:21:49.577852Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "flow",
+          "node_name": "flow",
+          "type": "Flow",
+          "start_time": 1711146107.139199,
+          "end_time": 1711146109.577852,
+          "children": [
+            {
+              "name": "AzureOpenAI.chat",
+              "type": "Tool",
+              "inputs": {
+                "prompt": "{# Prompt is a jinja2 template that generates prompt for LLM #}\n\nsystem:\n\nYou are a bot can tell good jokes\n\n\nuser:\n\nA joke about {{topic}} please",
+                "deployment_name": "gpt-4-32k-default-aueast",
+                "temperature": 1,
+                "top_p": 1,
+                "max_tokens": 256,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "topic": "chickens"
+              },
+              "output": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives.",
+              "start_time": 1711146107.142116,
+              "end_time": 1711146109.570758,
+              "error": null,
+              "children": [
+                {
+                  "name": "openai.resources.chat.completions.Completions.create",
+                  "type": "LLM",
+                  "inputs": {
+                    "model": "gpt-4-32k-default-aueast",
+                    "messages": [
+                      {
+                        "role": "system",
+                        "content": "You are a bot can tell good jokes"
+                      },
+                      {
+                        "role": "user",
+                        "content": "A joke about chickens please"
+                      }
+                    ],
+                    "temperature": 1,
+                    "top_p": 1,
+                    "n": 1,
+                    "stream": false,
+                    "stop": null,
+                    "max_tokens": 256,
+                    "presence_penalty": 0,
+                    "frequency_penalty": 0,
+                    "logit_bias": {},
+                    "user": "",
+                    "response_format": null
+                  },
+                  "output": {
+                    "id": "chatcmpl-95rrP87k6KHTG5PiZoUppVr0Ywe7R",
+                    "choices": [
+                      {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                          "content": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives.",
+                          "role": "assistant",
+                          "function_call": null,
+                          "tool_calls": null
+                        },
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ],
+                    "created": 1711185707,
+                    "model": "gpt-4-32k",
+                    "object": "chat.completion",
+                    "system_fingerprint": null,
+                    "usage": {
+                      "completion_tokens": 33,
+                      "prompt_tokens": 24,
+                      "total_tokens": 57
+                    },
+                    "prompt_filter_results": [
+                      {
+                        "prompt_index": 0,
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "start_time": 1711146107.14809,
+                  "end_time": 1711146109.570758,
+                  "error": null,
+                  "children": [],
+                  "node_name": null,
+                  "parent_id": "9007fe5c-bb65-4d54-8a01-22f36dcfc01e",
+                  "id": "0483361e-f4a6-4661-963f-e53022534a47",
+                  "system_metrics": {
+                    "completion_tokens": 33,
+                    "prompt_tokens": 24,
+                    "total_tokens": 57
+                  }
+                }
+              ],
+              "node_name": "joke",
+              "parent_id": "",
+              "id": "9007fe5c-bb65-4d54-8a01-22f36dcfc01e",
+              "system_metrics": {
+                "completion_tokens": 33,
+                "prompt_tokens": 24,
+                "total_tokens": 57
+              }
+            },
+            {
+              "name": "echo",
+              "type": "Tool",
+              "inputs": {
+                "input": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives."
+              },
+              "output": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives.",
+              "start_time": 1711146109.57671,
+              "end_time": 1711146109.57671,
+              "error": null,
+              "children": [],
+              "node_name": "echo",
+              "parent_id": "",
+              "id": "27ac0637-a8c1-444a-85f8-50f3f7f2a6d3",
+              "system_metrics": {}
+            }
+          ],
+          "system_metrics": {
+            "duration": 2.438653,
+            "prompt_tokens": 24,
+            "completion_tokens": 33,
+            "total_tokens": 57
+          },
+          "inputs": {
+            "topic": "chickens"
+          },
+          "output": {
+            "joke": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives."
+          },
+          "error": null
+        }
+      ],
+      "variant_id": "variant_0",
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "duration": 2.438653,
+        "prompt_tokens": 24,
+        "completion_tokens": 33,
+        "total_tokens": 57
+      },
+      "result": {
+        "joke": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives."
+      },
+      "upload_metrics": false
+    },
+    {
+      "run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e_0",
+      "status": "Completed",
+      "error": null,
+      "inputs": {
+        "topic": "chickens"
+      },
+      "output": {
+        "joke": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")"
+      },
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e",
+      "root_run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e",
+      "source_run_id": null,
+      "flow_id": "template_standard_flow",
+      "start_time": "2024-03-23T09:21:47.484088Z",
+      "end_time": "2024-03-23T09:22:01.068446Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "flow",
+          "node_name": "flow",
+          "type": "Flow",
+          "start_time": 1711146107.484088,
+          "end_time": 1711146121.068446,
+          "children": [
+            {
+              "name": "AzureOpenAI.chat",
+              "type": "Tool",
+              "inputs": {
+                "prompt": "{# Prompt is a jinja2 template that generates prompt for LLM #}\n\nsystem:\n\nYou are good at dad joke.\n\nAlways respond in Arabic, French, or Hindu\n\nuser:\n\nPlease provide a funny joke about {{topic}}\"\n",
+                "deployment_name": "gpt-4-1106pr-aueast",
+                "temperature": 1,
+                "top_p": 1,
+                "max_tokens": 500,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "topic": "chickens"
+              },
+              "output": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")",
+              "start_time": 1711146107.487093,
+              "end_time": 1711146121.059442,
+              "error": null,
+              "children": [
+                {
+                  "name": "openai.resources.chat.completions.Completions.create",
+                  "type": "LLM",
+                  "inputs": {
+                    "model": "gpt-4-1106pr-aueast",
+                    "messages": [
+                      {
+                        "role": "system",
+                        "content": "You are good at dad joke.\n\nAlways respond in Arabic, French, or Hindu"
+                      },
+                      {
+                        "role": "user",
+                        "content": "Please provide a funny joke about chickens\""
+                      }
+                    ],
+                    "temperature": 1,
+                    "top_p": 1,
+                    "n": 1,
+                    "stream": false,
+                    "stop": null,
+                    "max_tokens": 500,
+                    "presence_penalty": 0,
+                    "frequency_penalty": 0,
+                    "logit_bias": {},
+                    "user": "",
+                    "response_format": null
+                  },
+                  "output": {
+                    "id": "chatcmpl-95rrPXFMO1YS6EHGm5FDR7RiHQkRE",
+                    "choices": [
+                      {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                          "content": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")",
+                          "role": "assistant",
+                          "function_call": null,
+                          "tool_calls": null
+                        },
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ],
+                    "created": 1711185707,
+                    "model": "gpt-4",
+                    "object": "chat.completion",
+                    "system_fingerprint": "fp_8abb16fa4e",
+                    "usage": {
+                      "completion_tokens": 48,
+                      "prompt_tokens": 35,
+                      "total_tokens": 83
+                    },
+                    "prompt_filter_results": [
+                      {
+                        "prompt_index": 0,
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "start_time": 1711146107.492092,
+                  "end_time": 1711146121.059442,
+                  "error": null,
+                  "children": [],
+                  "node_name": null,
+                  "parent_id": "ec341706-8981-4042-a82f-fb6c686d0f26",
+                  "id": "2af37fdd-51c9-477e-bcce-5afc4afa77c8",
+                  "system_metrics": {
+                    "completion_tokens": 48,
+                    "prompt_tokens": 35,
+                    "total_tokens": 83
+                  }
+                }
+              ],
+              "node_name": "joke",
+              "parent_id": "",
+              "id": "ec341706-8981-4042-a82f-fb6c686d0f26",
+              "system_metrics": {
+                "completion_tokens": 48,
+                "prompt_tokens": 35,
+                "total_tokens": 83
+              }
+            },
+            {
+              "name": "echo",
+              "type": "Tool",
+              "inputs": {
+                "input": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")"
+              },
+              "output": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")",
+              "start_time": 1711146121.066444,
+              "end_time": 1711146121.067443,
+              "error": null,
+              "children": [],
+              "node_name": "echo",
+              "parent_id": "",
+              "id": "2165edcd-ceb5-4828-9552-2a68e61df50c",
+              "system_metrics": {}
+            }
+          ],
+          "system_metrics": {
+            "duration": 13.584358,
+            "prompt_tokens": 35,
+            "completion_tokens": 48,
+            "total_tokens": 83
+          },
+          "inputs": {
+            "topic": "chickens"
+          },
+          "output": {
+            "joke": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")"
+          },
+          "error": null
+        }
+      ],
+      "variant_id": "variant_1",
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "duration": 13.584358,
+        "prompt_tokens": 35,
+        "completion_tokens": 48,
+        "total_tokens": 83
+      },
+      "result": {
+        "joke": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")"
+      },
+      "upload_metrics": false
+    },
+    {
+      "run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1_0",
+      "status": "Completed",
+      "error": null,
+      "inputs": {
+        "topic": "chickens"
+      },
+      "output": {
+        "joke": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?"
+      },
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1",
+      "root_run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1",
+      "source_run_id": null,
+      "flow_id": "template_standard_flow",
+      "start_time": "2024-03-23T09:21:47.593946Z",
+      "end_time": "2024-03-23T09:21:48.385326Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "flow",
+          "node_name": "flow",
+          "type": "Flow",
+          "start_time": 1711146107.593946,
+          "end_time": 1711146108.385326,
+          "children": [
+            {
+              "name": "AzureOpenAI.chat",
+              "type": "Tool",
+              "inputs": {
+                "prompt": "System: \n\nbut you are really bad at jokes, and always include some mathematical none sense, you think its funny! \n\nUser: \n\nTell me a funny joke about {{topic}}, I could use a good laugh!",
+                "deployment_name": "gpt-35-turbo-1106-aueast",
+                "temperature": 1,
+                "top_p": 1,
+                "max_tokens": 256,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "topic": "chickens"
+              },
+              "output": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?",
+              "start_time": 1711146107.597031,
+              "end_time": 1711146108.367884,
+              "error": null,
+              "children": [
+                {
+                  "name": "openai.resources.chat.completions.Completions.create",
+                  "type": "LLM",
+                  "inputs": {
+                    "model": "gpt-35-turbo-1106-aueast",
+                    "messages": [
+                      {
+                        "role": "system",
+                        "content": "but you are really bad at jokes, and always include some mathematical none sense, you think its funny!"
+                      },
+                      {
+                        "role": "user",
+                        "content": "Tell me a funny joke about chickens, I could use a good laugh!"
+                      }
+                    ],
+                    "temperature": 1,
+                    "top_p": 1,
+                    "n": 1,
+                    "stream": false,
+                    "stop": null,
+                    "max_tokens": 256,
+                    "presence_penalty": 0,
+                    "frequency_penalty": 0,
+                    "logit_bias": {},
+                    "user": "",
+                    "response_format": null
+                  },
+                  "output": {
+                    "id": "chatcmpl-95rrPrOJ5zK6kIJ7hyMqzsj3hyuH2",
+                    "choices": [
+                      {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                          "content": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?",
+                          "role": "assistant",
+                          "function_call": null,
+                          "tool_calls": null
+                        },
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ],
+                    "created": 1711185707,
+                    "model": "gpt-35-turbo",
+                    "object": "chat.completion",
+                    "system_fingerprint": "fp_68a7d165bf",
+                    "usage": {
+                      "completion_tokens": 68,
+                      "prompt_tokens": 47,
+                      "total_tokens": 115
+                    },
+                    "prompt_filter_results": [
+                      {
+                        "prompt_index": 0,
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "start_time": 1711146107.604143,
+                  "end_time": 1711146108.367884,
+                  "error": null,
+                  "children": [],
+                  "node_name": null,
+                  "parent_id": "a3fbb144-a525-43c7-a530-08e7fbd10bf4",
+                  "id": "c34e91cb-b82d-4b8a-bab1-51f2b557c2cb",
+                  "system_metrics": {
+                    "completion_tokens": 68,
+                    "prompt_tokens": 47,
+                    "total_tokens": 115
+                  }
+                }
+              ],
+              "node_name": "joke",
+              "parent_id": "",
+              "id": "a3fbb144-a525-43c7-a530-08e7fbd10bf4",
+              "system_metrics": {
+                "completion_tokens": 68,
+                "prompt_tokens": 47,
+                "total_tokens": 115
+              }
+            },
+            {
+              "name": "echo",
+              "type": "Tool",
+              "inputs": {
+                "input": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?"
+              },
+              "output": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?",
+              "start_time": 1711146108.381728,
+              "end_time": 1711146108.382746,
+              "error": null,
+              "children": [],
+              "node_name": "echo",
+              "parent_id": "",
+              "id": "994c81c2-46e7-4c95-9d2e-55b18050fd12",
+              "system_metrics": {}
+            }
+          ],
+          "system_metrics": {
+            "duration": 0.79138,
+            "prompt_tokens": 47,
+            "completion_tokens": 68,
+            "total_tokens": 115
+          },
+          "inputs": {
+            "topic": "chickens"
+          },
+          "output": {
+            "joke": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?"
+          },
+          "error": null
+        }
+      ],
+      "variant_id": "variant_2",
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "duration": 0.79138,
+        "prompt_tokens": 47,
+        "completion_tokens": 68,
+        "total_tokens": 115
+      },
+      "result": {
+        "joke": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?"
+      },
+      "upload_metrics": false
+    }
+  ],
+  "node_runs": [
+    {
+      "node": "joke",
+      "flow_run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c",
+      "run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c_joke_0",
+      "status": "Completed",
+      "inputs": {
+        "deployment_name": "gpt-4-32k-default-aueast",
+        "temperature": 1,
+        "top_p": 1,
+        "max_tokens": 256,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "topic": "chickens"
+      },
+      "output": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives.",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c_0",
+      "start_time": "2024-03-23T09:21:47.141149Z",
+      "end_time": "2024-03-23T09:21:49.573757Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "{# Prompt is a jinja2 template that generates prompt for LLM #}\n\nsystem:\n\nYou are a bot can tell good jokes\n\n\nuser:\n\nA joke about {{topic}} please",
+            "deployment_name": "gpt-4-32k-default-aueast",
+            "temperature": 1,
+            "top_p": 1,
+            "max_tokens": 256,
+            "presence_penalty": 0,
+            "frequency_penalty": 0,
+            "topic": "chickens"
+          },
+          "output": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives.",
+          "start_time": 1711146107.142116,
+          "end_time": 1711146109.570758,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.resources.chat.completions.Completions.create",
+              "type": "LLM",
+              "inputs": {
+                "model": "gpt-4-32k-default-aueast",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a bot can tell good jokes"
+                  },
+                  {
+                    "role": "user",
+                    "content": "A joke about chickens please"
+                  }
+                ],
+                "temperature": 1,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 256,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": "",
+                "response_format": null
+              },
+              "output": {
+                "id": "chatcmpl-95rrP87k6KHTG5PiZoUppVr0Ywe7R",
+                "choices": [
+                  {
+                    "finish_reason": "stop",
+                    "index": 0,
+                    "logprobs": null,
+                    "message": {
+                      "content": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives.",
+                      "role": "assistant",
+                      "function_call": null,
+                      "tool_calls": null
+                    },
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "created": 1711185707,
+                "model": "gpt-4-32k",
+                "object": "chat.completion",
+                "system_fingerprint": null,
+                "usage": {
+                  "completion_tokens": 33,
+                  "prompt_tokens": 24,
+                  "total_tokens": 57
+                },
+                "prompt_filter_results": [
+                  {
+                    "prompt_index": 0,
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ]
+              },
+              "start_time": 1711146107.14809,
+              "end_time": 1711146109.570758,
+              "error": null,
+              "children": [],
+              "node_name": null,
+              "parent_id": "9007fe5c-bb65-4d54-8a01-22f36dcfc01e",
+              "id": "0483361e-f4a6-4661-963f-e53022534a47",
+              "system_metrics": {
+                "completion_tokens": 33,
+                "prompt_tokens": 24,
+                "total_tokens": 57
+              }
+            }
+          ],
+          "node_name": "joke",
+          "parent_id": "",
+          "id": "9007fe5c-bb65-4d54-8a01-22f36dcfc01e",
+          "system_metrics": {
+            "completion_tokens": 33,
+            "prompt_tokens": 24,
+            "total_tokens": 57
+          }
+        }
+      ],
+      "variant_id": "variant_0",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "completion_tokens": 33,
+        "prompt_tokens": 24,
+        "total_tokens": 57,
+        "duration": 2.432608
+      },
+      "result": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives."
+    },
+    {
+      "node": "echo",
+      "flow_run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c",
+      "run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c_echo_0",
+      "status": "Completed",
+      "inputs": {
+        "input": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives."
+      },
+      "output": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives.",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "f4da48eb-eadd-4ed7-a94c-2c7963044e2c_0",
+      "start_time": "2024-03-23T09:21:49.576414Z",
+      "end_time": "2024-03-23T09:21:49.576710Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "echo",
+          "type": "Tool",
+          "inputs": {
+            "input": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives."
+          },
+          "output": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives.",
+          "start_time": 1711146109.57671,
+          "end_time": 1711146109.57671,
+          "error": null,
+          "children": [],
+          "node_name": "echo",
+          "parent_id": "",
+          "id": "27ac0637-a8c1-444a-85f8-50f3f7f2a6d3",
+          "system_metrics": {}
+        }
+      ],
+      "variant_id": "variant_0",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 0.000296
+      },
+      "result": "Sure, here's a chicken joke for you:\n\nWhy don't chickens trust anyone?\n\nBecause they have seen too much chicken-fried-steak in their short lives."
+    },
+    {
+      "node": "joke",
+      "flow_run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e",
+      "run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e_joke_0",
+      "status": "Completed",
+      "inputs": {
+        "deployment_name": "gpt-4-1106pr-aueast",
+        "temperature": 1,
+        "top_p": 1,
+        "max_tokens": 500,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "topic": "chickens"
+      },
+      "output": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e_0",
+      "start_time": "2024-03-23T09:21:47.487093Z",
+      "end_time": "2024-03-23T09:22:01.063442Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "{# Prompt is a jinja2 template that generates prompt for LLM #}\n\nsystem:\n\nYou are good at dad joke.\n\nAlways respond in Arabic, French, or Hindu\n\nuser:\n\nPlease provide a funny joke about {{topic}}\"\n",
+            "deployment_name": "gpt-4-1106pr-aueast",
+            "temperature": 1,
+            "top_p": 1,
+            "max_tokens": 500,
+            "presence_penalty": 0,
+            "frequency_penalty": 0,
+            "topic": "chickens"
+          },
+          "output": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")",
+          "start_time": 1711146107.487093,
+          "end_time": 1711146121.059442,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.resources.chat.completions.Completions.create",
+              "type": "LLM",
+              "inputs": {
+                "model": "gpt-4-1106pr-aueast",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are good at dad joke.\n\nAlways respond in Arabic, French, or Hindu"
+                  },
+                  {
+                    "role": "user",
+                    "content": "Please provide a funny joke about chickens\""
+                  }
+                ],
+                "temperature": 1,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 500,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": "",
+                "response_format": null
+              },
+              "output": {
+                "id": "chatcmpl-95rrPXFMO1YS6EHGm5FDR7RiHQkRE",
+                "choices": [
+                  {
+                    "finish_reason": "stop",
+                    "index": 0,
+                    "logprobs": null,
+                    "message": {
+                      "content": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")",
+                      "role": "assistant",
+                      "function_call": null,
+                      "tool_calls": null
+                    },
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "created": 1711185707,
+                "model": "gpt-4",
+                "object": "chat.completion",
+                "system_fingerprint": "fp_8abb16fa4e",
+                "usage": {
+                  "completion_tokens": 48,
+                  "prompt_tokens": 35,
+                  "total_tokens": 83
+                },
+                "prompt_filter_results": [
+                  {
+                    "prompt_index": 0,
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ]
+              },
+              "start_time": 1711146107.492092,
+              "end_time": 1711146121.059442,
+              "error": null,
+              "children": [],
+              "node_name": null,
+              "parent_id": "ec341706-8981-4042-a82f-fb6c686d0f26",
+              "id": "2af37fdd-51c9-477e-bcce-5afc4afa77c8",
+              "system_metrics": {
+                "completion_tokens": 48,
+                "prompt_tokens": 35,
+                "total_tokens": 83
+              }
+            }
+          ],
+          "node_name": "joke",
+          "parent_id": "",
+          "id": "ec341706-8981-4042-a82f-fb6c686d0f26",
+          "system_metrics": {
+            "completion_tokens": 48,
+            "prompt_tokens": 35,
+            "total_tokens": 83
+          }
+        }
+      ],
+      "variant_id": "variant_1",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "completion_tokens": 48,
+        "prompt_tokens": 35,
+        "total_tokens": 83,
+        "duration": 13.576349
+      },
+      "result": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")"
+    },
+    {
+      "node": "echo",
+      "flow_run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e",
+      "run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e_echo_0",
+      "status": "Completed",
+      "inputs": {
+        "input": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")"
+      },
+      "output": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "52477cdf-4cca-4121-ad91-4380c108ff0e_0",
+      "start_time": "2024-03-23T09:22:01.066444Z",
+      "end_time": "2024-03-23T09:22:01.067443Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "echo",
+          "type": "Tool",
+          "inputs": {
+            "input": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")"
+          },
+          "output": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")",
+          "start_time": 1711146121.066444,
+          "end_time": 1711146121.067443,
+          "error": null,
+          "children": [],
+          "node_name": "echo",
+          "parent_id": "",
+          "id": "2165edcd-ceb5-4828-9552-2a68e61df50c",
+          "system_metrics": {}
+        }
+      ],
+      "variant_id": "variant_1",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 0.000999
+      },
+      "result": "Pourquoi les poulets n'envoient-ils jamais de courriels ?\n\nParce qu'ils préfèrent utiliser la poste-aille! (un jeu de mots avec \"poste\" et \"poule\")"
+    },
+    {
+      "node": "joke",
+      "flow_run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1",
+      "run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1_joke_0",
+      "status": "Completed",
+      "inputs": {
+        "deployment_name": "gpt-35-turbo-1106-aueast",
+        "temperature": 1,
+        "top_p": 1,
+        "max_tokens": 256,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "topic": "chickens"
+      },
+      "output": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1_0",
+      "start_time": "2024-03-23T09:21:47.597031Z",
+      "end_time": "2024-03-23T09:21:48.376971Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "System: \n\nbut you are really bad at jokes, and always include some mathematical none sense, you think its funny! \n\nUser: \n\nTell me a funny joke about {{topic}}, I could use a good laugh!",
+            "deployment_name": "gpt-35-turbo-1106-aueast",
+            "temperature": 1,
+            "top_p": 1,
+            "max_tokens": 256,
+            "presence_penalty": 0,
+            "frequency_penalty": 0,
+            "topic": "chickens"
+          },
+          "output": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?",
+          "start_time": 1711146107.597031,
+          "end_time": 1711146108.367884,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.resources.chat.completions.Completions.create",
+              "type": "LLM",
+              "inputs": {
+                "model": "gpt-35-turbo-1106-aueast",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "but you are really bad at jokes, and always include some mathematical none sense, you think its funny!"
+                  },
+                  {
+                    "role": "user",
+                    "content": "Tell me a funny joke about chickens, I could use a good laugh!"
+                  }
+                ],
+                "temperature": 1,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 256,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": "",
+                "response_format": null
+              },
+              "output": {
+                "id": "chatcmpl-95rrPrOJ5zK6kIJ7hyMqzsj3hyuH2",
+                "choices": [
+                  {
+                    "finish_reason": "stop",
+                    "index": 0,
+                    "logprobs": null,
+                    "message": {
+                      "content": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?",
+                      "role": "assistant",
+                      "function_call": null,
+                      "tool_calls": null
+                    },
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "created": 1711185707,
+                "model": "gpt-35-turbo",
+                "object": "chat.completion",
+                "system_fingerprint": "fp_68a7d165bf",
+                "usage": {
+                  "completion_tokens": 68,
+                  "prompt_tokens": 47,
+                  "total_tokens": 115
+                },
+                "prompt_filter_results": [
+                  {
+                    "prompt_index": 0,
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ]
+              },
+              "start_time": 1711146107.604143,
+              "end_time": 1711146108.367884,
+              "error": null,
+              "children": [],
+              "node_name": null,
+              "parent_id": "a3fbb144-a525-43c7-a530-08e7fbd10bf4",
+              "id": "c34e91cb-b82d-4b8a-bab1-51f2b557c2cb",
+              "system_metrics": {
+                "completion_tokens": 68,
+                "prompt_tokens": 47,
+                "total_tokens": 115
+              }
+            }
+          ],
+          "node_name": "joke",
+          "parent_id": "",
+          "id": "a3fbb144-a525-43c7-a530-08e7fbd10bf4",
+          "system_metrics": {
+            "completion_tokens": 68,
+            "prompt_tokens": 47,
+            "total_tokens": 115
+          }
+        }
+      ],
+      "variant_id": "variant_2",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "completion_tokens": 68,
+        "prompt_tokens": 47,
+        "total_tokens": 115,
+        "duration": 0.77994
+      },
+      "result": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?"
+    },
+    {
+      "node": "echo",
+      "flow_run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1",
+      "run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1_echo_0",
+      "status": "Completed",
+      "inputs": {
+        "input": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?"
+      },
+      "output": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "320e0c42-bd5a-4e7e-b688-e4393160a7d1_0",
+      "start_time": "2024-03-23T09:21:48.380597Z",
+      "end_time": "2024-03-23T09:21:48.383742Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "echo",
+          "type": "Tool",
+          "inputs": {
+            "input": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?"
+          },
+          "output": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?",
+          "start_time": 1711146108.381728,
+          "end_time": 1711146108.382746,
+          "error": null,
+          "children": [],
+          "node_name": "echo",
+          "parent_id": "",
+          "id": "994c81c2-46e7-4c95-9d2e-55b18050fd12",
+          "system_metrics": {}
+        }
+      ],
+      "variant_id": "variant_2",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 0.003145
+      },
+      "result": "Why did the chicken cross the Möbius strip? To get to the same side of the egg-duction function! Get it? Because on a Möbius strip, you can technically be on both sides at once, just like the chicken and the egg in the concept of an egg-duction function! Hilarious, right?"
+    }
+  ]
+}

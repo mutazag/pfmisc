@@ -1,0 +1,71 @@
+id: template_eval_flow
+name: Template Evaluation Flow
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  topic:
+    type: string
+    default: chickens
+    is_chat_input: false
+  outputjoke:
+    type: string
+    default: "What did the chicken cross the road? .. to get to the other side! "
+    is_chat_input: false
+outputs:
+  comedic_value:
+    type: string
+    reference: ${line_process.output.comedic_value}
+  comedic_relevance:
+    type: string
+    reference: ${line_process.output.comedic_relevance}
+nodes:
+- name: line_process
+  type: python
+  source:
+    type: code
+    path: line_process.py
+  inputs:
+    jokescore: ${joke_score.output}
+  use_variants: false
+- name: aggregate
+  type: python
+  source:
+    type: code
+    path: aggregate.py
+  inputs:
+    results: ${line_process.output}
+  aggregation: true
+  use_variants: false
+- name: joke_score
+  type: llm
+  source:
+    type: code
+    path: joke_score.jinja2
+  inputs:
+    deployment_name: gpt-4-32k-default-aueast
+    temperature: 0.1
+    top_p: 1
+    max_tokens: 50
+    presence_penalty: 0
+    frequency_penalty: 0
+    joke: ${inputs.topic}
+    topic: ${inputs.outputjoke}
+  connection: AOAI_AustEastv2
+  api: chat
+  use_variants: false
+- name: ensure_json
+  type: llm
+  source:
+    type: code
+    path: ensure_json.jinja2
+  inputs:
+    deployment_name: gpt-4-32k-default-aueast
+    temperature: 0
+    top_p: 1
+    max_tokens: 50
+    presence_penalty: 0
+    frequency_penalty: 0
+    input: ${joke_score.output}
+  connection: AOAI_AustEastv2
+  api: chat
+  use_variants: false

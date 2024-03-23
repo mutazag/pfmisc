@@ -1,0 +1,16 @@
+{
+  "nodes": {
+    "echo": {
+      "variant_0": {
+        "inputs": {},
+        "inputsValue": {}
+      }
+    },
+    "joke": {
+      "variant_1": {
+        "inputs": {},
+        "inputsValue": {}
+      }
+    }
+  }
+}

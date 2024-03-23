@@ -1,0 +1,7 @@
+tests:
+  - name: Dad jokes flow_default_20240323_201717_445000
+    display_name: Dad jokes flow_${variant_id}_${timestamp}
+    flow: c:\git\pfmisc\flows\dadjokes\Dad jokes flow
+    data: c:\git\pfmisc\flows\dadjokes\data\testdatajoketopics.csv
+    column_mapping:
+      topic: ${data.topic}

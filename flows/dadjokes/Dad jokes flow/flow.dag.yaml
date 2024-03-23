@@ -1,0 +1,76 @@
+id: template_standard_flow
+name: Template Standard Flow
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  topic:
+    type: string
+    is_chat_input: false
+    default: chickens
+outputs:
+  joke:
+    type: string
+    reference: ${echo.output}
+nodes:
+- name: echo
+  type: python
+  source:
+    type: code
+    path: echo.py
+  inputs:
+    input: ${joke.output}
+  use_variants: false
+- name: joke
+  use_variants: true
+node_variants:
+  joke:
+    default_variant_id: variant_1
+    variants:
+      variant_0:
+        node:
+          type: llm
+          source:
+            type: code
+            path: joke.jinja2
+          inputs:
+            deployment_name: gpt-4-32k-default-aueast
+            temperature: 1
+            top_p: 1
+            max_tokens: 256
+            presence_penalty: 0
+            frequency_penalty: 0
+            topic: ${inputs.topic}
+          connection: AOAI_AustEastv2
+          api: chat
+      variant_1:
+        node:
+          type: llm
+          source:
+            type: code
+            path: joke__variant_1.jinja2
+          inputs:
+            deployment_name: gpt-4-1106pr-aueast
+            temperature: 1
+            top_p: 1
+            max_tokens: 500
+            presence_penalty: 0
+            frequency_penalty: 0
+            topic: ${inputs.topic}
+          connection: AOAI_AustEastv2
+          api: chat
+      variant_2:
+        node:
+          type: llm
+          source:
+            type: code
+            path: joke__variant_2.jinja2
+          inputs:
+            deployment_name: gpt-35-turbo-1106-aueast
+            temperature: 1
+            top_p: 1
+            max_tokens: 256
+            presence_penalty: 0
+            frequency_penalty: 0
+            topic: ${inputs.topic}
+          connection: AOAI_AustEastv2
+          api: chat
