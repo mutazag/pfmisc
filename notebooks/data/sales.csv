@@ -1,0 +1,9 @@
+id, date, item, unitprice, qty
+1, 01.01.2024, mouse, 15, 4
+2, 01.02.2024, keyboard, 50, 3
+3, 01.03.2024, mouse, 15, 1
+4, 01.04.2024, keyboard, 45, 1
+5, 01.05.2024, monitor, 300, 1
+6, 01.06.2024, keyboard, 48, 10
+7, 01.06.2024, mouse, 20, 1
+8, 01.08.2024, keyboard, 51, 7
